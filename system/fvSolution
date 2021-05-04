@@ -166,8 +166,8 @@ PIMPLE
     nOuterCorrectors          2;
     nCorrectors               3;
     nNonOrthogonalCorrectors  1;  
-    // pRefCell  1001;
-    // pRefValue 0;  
+    pRefCell  1001;
+    pRefValue 0;  
 }
 
 /*
