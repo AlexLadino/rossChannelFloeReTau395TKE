@@ -1,0 +1,138 @@
+compU // components(U) = Ux Uy Uz
+{
+      // Function object enabled flag
+      enabled         true;
+      type            components;
+      libs            ("libfieldFunctionObjects.so");
+      field           U;
+      executeControl  timeStep;    // none; timeStep; writeTime; outputTime
+      executeInterval   10;
+      writeControl    none;    // none; timeStep; writeTime; outputTime
+      writeInterval     10;    
+}   
+
+
+magSqr1 // magSqr(Ux)
+{
+      // Function object enabled flag
+      enabled         true;
+      type            magSqr;
+      libs            ("libfieldFunctionObjects.so");
+      field           Ux;
+      executeControl  timeStep;    // none; timeStep; writeTime; outputTime
+      executeInterval   10;
+      writeControl    none;    // none; timeStep; writeTime; outputTime
+      writeInterval     10;    
+}
+
+magSqr2 // magSqr(Uy)
+{
+      // Function object enabled flag
+      enabled         true;
+      type            magSqr;
+      libs            ("libfieldFunctionObjects.so");
+      field           Uy;
+      executeControl  timeStep;    // none; timeStep; writeTime; outputTime
+      executeInterval   10;
+      writeControl    none;    // none; timeStep; writeTime; outputTime
+      writeInterval     10;    
+}
+
+magSqr3 // magSqr(Uz)
+{
+      // Function object enabled flag
+      enabled         true;
+      type            magSqr;
+      libs            ("libfieldFunctionObjects.so");
+      field           Uz;
+      executeControl  timeStep;    // none; timeStep; writeTime; outputTime
+      executeInterval   10;
+      writeControl    none;    // none; timeStep; writeTime; outputTime
+      writeInterval     10;    
+}
+
+integral // integral(field*dV)
+{
+      enabled         true;
+      /*
+      volumeAverage, volumeIntegrate, volumeMinMax
+      */
+      type            volumeAverage;
+      libs            ("libfieldFunctionObjects.so");
+
+       executeControl  timeStep;    // none; timeStep; writeTime; outputTime
+       executeInterval 10;
+       writeControl    timeStep;    // none; timeStep; writeTime; outputTime
+       writeInterval   10;
+       
+       log              true; // escriba en standard output (log)
+      
+      // outputControlMode
+      fields (magSqr(Ux) magSqr(Uy) magSqr(Uz));
+}
+
+/* 
+diferencia de flujos entrada y salida TRABAJANDO
+     fieldValueDelta1
+    {
+        type fieldValueDelta;
+        libs ("libfieldFunctionObjects.so");
+        operation add;
+
+       writeFields       false;
+            
+       executeControl  timeStep;    // none; timeStep; writeTime; outputTime
+       executeInterval 1;
+       writeControl    timeStep;    // none; timeStep; writeTime; outputTime
+       writeInterval   1;
+       
+       log        true; // Escriba en el log del solver ex: en log.pisoFoam
+
+        region1
+        {
+            type              surfaceFieldValue;
+            libs              ("libfieldFunctionObjects.so");
+            enabled           true;
+            regionType        patch;
+            
+            executeControl  timeStep;    // none; timeStep; writeTime; outputTime
+            executeInterval 1;
+            writeControl    none;    // none; timeStep; writeTime; outputTime
+            writeInterval   1;
+            
+            writeFields       false;
+            
+            log               false;
+            valueOutput       false;
+
+            source            patch;
+            name        outlet; //OK
+            operation         sum;
+            fields            (phi);
+        }
+        
+    region2
+    {
+            type              surfaceFieldValue;
+            libs              ("libfieldFunctionObjects.so");
+            enabled           true;
+            regionType        patch;
+
+            
+       executeControl  timeStep;    // none; timeStep; writeTime; outputTime
+       executeInterval 1;
+       writeControl    none;    // none; timeStep; writeTime; outputTime
+       writeInterval   1;
+            
+            writeFields       false;
+            
+            log               false;
+            valueOutput       false;
+            // surfaceFormat     null;
+            source            patch;
+            name        inlet; //OK
+            operation         sum;
+            fields            (phi);
+        }
+    }
+*/   

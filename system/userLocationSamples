@@ -1,0 +1,21 @@
+    center
+    {
+        type        midPoint;
+        axis        distance;
+        start       (2.0 0.0 0.25);
+        end         (2.0 2.0 0.25);
+    }
+    side1
+    {
+        type        midPoint;
+        axis        distance;
+        start       (2.0 0.0 1.0);
+        end         (2.0 2.0 1.0);
+    }
+    side2
+    {
+        type        midPoint;
+        axis        distance;
+        start       (2.0 0.0 1.75);
+        end         (2.0 2.0 1.75);
+    }

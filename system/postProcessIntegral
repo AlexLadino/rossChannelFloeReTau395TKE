@@ -1,0 +1,16 @@
+// postProcess -func "<nombre de archivo>" -latestTime
+
+      enabled         true;
+      /*
+      volumeAverage, volumeIntegrate, volumeMinMax
+      */
+      type            volumeIntegrate;
+      libs            ("libfieldFunctionObjects.so");
+
+      // executeControl  timeStep;    // none; timeStep; writeTime; outputTime
+      // executeInterval 10;
+      // writeControl    timeStep;    // none; timeStep; writeTime; outputTime
+      // writeInterval   10;
+      
+      // outputControlMode
+      fields (p U nut);
