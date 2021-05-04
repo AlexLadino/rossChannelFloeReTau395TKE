@@ -74,5 +74,9 @@ libs
 // ************************************************************************* 
 functions
 {
-   
+      // Para que los cambian en tiempo de ejecucion se hagan se debe modificar
+      // en los includes y luego modificar con espacio y guardar el controlDict
+      #include "secondaryFields1"      
+      #include "monitorProbes1"
+      #include "monitorSamples1"      
 }
