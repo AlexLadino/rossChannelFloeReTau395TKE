@@ -11,4 +11,4 @@ postProcess -func "mag(wallShearStressMean)" -time $tiempo
 postProcess -func "patchIntegrate(name=topWall,mag(wallShearStressMean))" -time $tiempo
 postProcess -func "patchIntegrate(name=bottomWall,mag(wallShearStressMean))" -time $tiempo
 
-postChannelBudgetV1Mean -time $tiempo
+postChannelBudgetV2021 -time $tiempo
