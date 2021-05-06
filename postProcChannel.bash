@@ -1,7 +1,7 @@
 #!/bin/sh
 cd ${0%/*} || exit 1    # Run from this directory
 
-tiempo='40.00000000'
+tiempo='6280.00000000'
 mv $tiempo/U $tiempo/U.orig
 cp $tiempo/UMean $tiempo/U
 pimpleFoam -postProcess -func wallShearStress -time $tiempo 
